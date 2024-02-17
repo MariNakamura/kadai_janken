@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="css/sample.css">
+    <title>じゃんけん</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>じゃんけん</h1>
+    </header>
+
+    <main>
+        <ul>
+            <li id="gu_btn">グー</li>
+            <li id="cho_btn">チョキ</li>
+            <li id="par_btn">パー</li>
+        </ul>
+        <div>コンピュータの出した手は？「<span id="pc_hands">なに？</span>」</div>
+        <div id="judgment">勝ち</div>
+    </main>
+
+    <footer></footer>
+    <script>
+         // ボタンにクリックイベントを追加
+         $('ul li').click(function() {
+            let userChoice = $(this).attr('id').replace('_btn', ''); // クリックされたボタンのIDからユーザーの選択を取得
+            let computerChoices = ['グー', 'チョキ', 'パー'];
+            let computerChoice = computerChoices[Math.floor(Math.random() * 3)]; // コンピュータのランダムな手を取得
+
+            // コンピュータの手を表示
+            $('#pc_hands').text(computerChoice);
+
+            // 勝敗を判定して表示
+            let result;
+            if ((userChoice === 'gu' && computerChoice === 'チョキ') ||
+                (userChoice === 'cho' && computerChoice === 'パー') ||
+                (userChoice === 'par' && computerChoice === 'グー')) {
+                result = '勝ち';
+            } else if ((userChoice === 'gu' && computerChoice === 'パー') ||
+                (userChoice === 'cho' && computerChoice === 'グー') ||
+                (userChoice === 'par' && computerChoice === 'チョキ')) {
+                result = '負け';
+            } else {
+                result = '引き分け';
+            }
+
+            // 結果を表示
+            $('#judgment').text(result);
+        });
+   
+    </script>
+</body>
+
+</html>
