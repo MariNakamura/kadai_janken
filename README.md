@@ -1,3 +1,7 @@
+- 2つのhtmlを作成してしまったので、ややこしいんですが両方アップします。
+- じゃんけんアプリ→janken.tpl.html
+- ランダムスライドショー→js_第2回課題の中のindex.html
+
 # kadai_janken
 G'sAcademy第2回課題 じゃんけんアプリ
 
